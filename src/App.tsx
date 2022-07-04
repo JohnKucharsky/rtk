@@ -1,11 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { Contact } from "./models/todo.model";
-import {
-  useAddPostMutation,
-  usePostQuery,
-  usePostsQuery,
-} from "./services/api";
+import { useAddPostMutation, usePostsQuery } from "./services/api";
 
 const App = () => {
   const initS = {
