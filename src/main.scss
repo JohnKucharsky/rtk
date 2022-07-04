@@ -1,0 +1,14 @@
+.main {
+  text-align: center;
+  &__cardcontainer {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__card {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #ffedd5;
+    width: 10rem;
+  }
+}
