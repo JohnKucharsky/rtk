@@ -9,7 +9,7 @@ import {
 
 const App = () => {
   const initS = {
-    id: Math.random(),
+    id: 1,
     userId: 1,
     title: "",
     body: "",
@@ -18,18 +18,13 @@ const App = () => {
   const { data, error, isLoading, refetch } = usePostsQuery();
   const [addPost, { data: response }] = useAddPostMutation();
 
-  const TodoDetail = ({ id }: { id: number }) => {
-    const { data } = usePostQuery(id);
-    return (
-      <p style={{ paddingTop: "1rem" }}>{JSON.stringify(data, undefined, 2)}</p>
-    );
-  };
-
   const addHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     await addPost(formData);
     refetch();
+    setFormData(initS);
   };
+  response && console.log(response);
   //   console.log(response);
   return (
     <div className="main">
@@ -70,9 +65,6 @@ const App = () => {
           <div className="main__card" key={v.id}>
             <span>{v.title}</span>
             <span>{v.body}</span>
-            <span>
-              <TodoDetail id={v.id} />
-            </span>
           </div>
         ))}
       </div>
